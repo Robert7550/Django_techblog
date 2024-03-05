@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="icon" href="images/signup.jpg"/>
+    <link rel="stylesheet" href="index.css"/>
+    <script src="https://kit.fontawesome.com/02dbc50f77.js" crossorigin="anonymous"></script>
+
+
+<style>
+  *{
+    font-family: Arial, Helvetica, sans-serif;
+    border: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  
+  .container{
+    background-color: white;
+    width: 100%;
+    height: 100vh;
+    {% comment %} background-color:rgb(37, 36, 36); {% endcomment %}
+    background-color:black;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .container-signup{
+    background-color: transparent;
+    width: 90%;
+    border-radius: 50px;
+    max-width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 50px 50px 70px;
+    text-align: center;
+  }
+  
+  
+  .container-signup:hover{
+    box-shadow: rgb(245, 241, 241) 0px 0px 10px 0px;
+  }
+  
+  .container-signup h2{
+    margin-bottom: 50px;
+    color: rgb(252, 250, 254);
+    position: relative;
+  }
+  .container-signup h2:hover{
+    color: blueviolet;
+  }
+  
+  
+  .input-group{
+    padding: 10px;
+  
+  }
+  
+  .input-group:hover{
+    padding-right: 2px;
+  }
+  
+  
+  .input-group input{
+    padding: 10px;
+    width: 90%;
+    border-radius: 12px;
+  }
+  
+  .user{
+    color: white;
+  }
+  
+  .user:hover{
+    color:blueviolet;
+  }
+  
+  .lable{
+    margin-top: 1rem;
+  }
+  
+  .lable a{
+    text-decoration: none;
+    color: white;
+  }
+  
+  .lable a:hover{
+    color:blueviolet;   
+  }
+  
+  #sign-in{
+    margin-left: 2rem;
+  }
+  
+  
+  
+  /* button */
+  
+  #btn{
+    width: 50%;
+    height: 30px;
+    margin-top: 1rem;
+    border: none;
+    color: black;
+    background-color: whiat;
+    font-size: large;
+    border-radius: 15px;
+  }
+  
+  #btn:hover{
+    color: white;
+    background-color: blueviolet;
+  }
+  
+  #checkbox{
+    margin-left: -2rem;
+  }
+  
+  #remember{
+    color: white;
+    margin-right: 2rem;
+  }
+  #remember:hover{
+    color: blueviolet;
+  }
+  
+  
+  .alert{
+  color: burlywood;
+  }
+</style>
+
+
+</head>
+<body>
+    <div class="container ">
+
+        <form id="form" method = 'post'>
+          {% csrf_token %}
+
+            <div class="container-signup" >
+                <h2>Sign Up</h2>
+                <div class="input-group">
+                    <i class="fa-solid fa-user user"></i>
+                    <input id="username" type="text" placeholder="user name" name="username">
+                </div>
+
+                <div class="input-group">
+                    <i class="fa-solid fa-envelope user"></i>
+                    <input id="email" type="email" placeholder="email" name="email">
+                </div>
+
+                <div class="input-group">
+                    <i class="fa-solid fa-lock user"></i>
+                    <input id="password1" type="password" placeholder="password" name="password">
+                </div>
+
+                <div class="input-group">
+                    <i class="fa-solid fa-lock user"></i>
+                    <input id="password2" type="password" placeholder="confirm password" name="confirmpassword">
+                </div>
+
+                <button id="btn">Sign Up</button>
+
+                <div class="lable">
+                    <input id="checkbox" type="checkbox"/> 
+                    <label id="remember">Remember me</label>
+                    <label id="forgot-password"><a href= {% url "forgotpassword" %} >Forgot Password ?</a></label>
+                    <label id="sign-in"><a href= {% url "signin" %} >Sign In</a></label>
+                </div>
+            </div>
+        </form>
+
+    </div>
+    
+
+
+    <script src="index.js"></script>
+
+</body>
+</html>
