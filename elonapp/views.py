@@ -19,12 +19,11 @@ def signin(request):
         
         if user is not None:
             login(request, user)
-            return redirect("homepage/")
+            return redirect("homepage")
         else:
             # return HttpResponse("email and password is matching")
             messages.error(request=request, message="email or password is incorrect.")
             
-
     
     return render(request=request, template_name="signin.html")
     
@@ -41,7 +40,13 @@ def signup(request):
         if pwd != conpwd:
             # return HttpResponse("username or password is incorrect.")
             messages.error(request=request, message="password and con_password is not matching.")
-                
+        
+        elif pwd or conpwd == " ":
+            messages.error(request=request, message="please enter password or con_password.")
+
+        elif username or email == " ":
+             messages.error(request=request, message="please enter email or username.")
+             
         else:
             my_user = User.objects.create_user(username, email, pwd)
             my_user.save()
@@ -59,6 +64,12 @@ def signup(request):
 
 
 def forgotpassword(request):
+    
+    user = authenticate(request=request, )
+
+    if user is None:
+        messages.error(request=request, message="please enter the email")
+
     
     return render(request=request, template_name="forgotpassword.html")
 

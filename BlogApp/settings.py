@@ -52,7 +52,7 @@ INSTALLED_APPS = [
 # Robert did manual #
     "elonapp",
     
-]
+]   
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

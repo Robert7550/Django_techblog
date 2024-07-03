@@ -38,7 +38,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
-    padding: 50px 50px 70px;
+    padding: 50px 10px 70px;
     text-align: center;
   }
   
@@ -130,22 +130,45 @@
     color: blueviolet;
   }
   
-  
   .alert{
-  color: burlywood;
+  color: red;
+  margin-top: -1rem;
   }
+
+  {% comment %} .messages{
+    color: red;
+  } {% endcomment %}
+
+
 </style>
 
 
 </head>
 <body>
+  
     <div class="container ">
+      {% comment %} {% if messages %}
+    <div class="messages">
+      {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}"><b>{{ message }}</b> </div>
+      {% endfor %}
+    </div>
+    {% endif %} {% endcomment %}
 
         <form id="form" method = 'post'>
           {% csrf_token %}
 
             <div class="container-signup" >
                 <h2>Sign Up</h2>
+
+                {% if messages %}
+                  <div class="messages">
+                    {% for message in messages %}
+                      <div class="alert alert-{{ message.tags }}"><b>{{ message }}</b> </div>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+
                 <div class="input-group">
                     <i class="fa-solid fa-user user"></i>
                     <input id="username" type="text" placeholder="user name" name="username">
