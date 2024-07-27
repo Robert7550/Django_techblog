@@ -53,10 +53,10 @@ def signup(request):
 
             return redirect("signin")    
         
-        # print("username:",username)
-        # print("email:",email)
-        # print("pas:",pwd)
-        # print("conpwd:",conpwd)
+        print("username:",username)
+        print("email:",email)
+        print("pas:",pwd)
+        print("conpwd:",conpwd)
         
         
     return render(request=request, template_name="signup.html")
@@ -88,5 +88,5 @@ def homepage(request):
 
 def logout(request):
     logout(request)
-    return redirect('login')
+    return redirect('login' )
 

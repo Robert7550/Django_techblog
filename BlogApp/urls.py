@@ -33,3 +33,4 @@ urlpatterns = [
     path("homepage/", view=homepage, name='home')
 
 ]
+
